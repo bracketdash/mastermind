@@ -10,11 +10,12 @@ const fitsClues = (combo) => {
   let passing = true;
   history.forEach((slice) => {
     // passing = false if any of the below is false:
-    // - combo has not been gussed before
+    // - combo !== slice[0]
     // - if slice has pegs, combo includes the same chars at least equal to the number of pegs
     // - combo does not include any of the same chars in the same spots if no red pegs were assigned
     // - combo does not incllude any of the same chars if no pegs were assigned
   });
+  return passing;
 };
 const recursor = (combo) => {
   if (combo.length > 3) {
