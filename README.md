@@ -1,15 +1,5 @@
 # Schrodinger's Mastermind
 
-### `npm start`
+This is a version of the classic Mastermind game but the secret code isn't set in stone. It optimizes itself each time the player submits a guess so that the player can only win once the history of guesses logically narrows it down to one possibility.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-The build is minified and the filenames include the hashes.\
+To run this game locally, clone this repo and run `npm start` from the repo folder.
