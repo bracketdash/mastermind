@@ -116,6 +116,10 @@ body {
   background-color: #e67e22;
 }
 
+.g {
+  background-color: #ddd;
+}
+
 .pegs {
   display: flex;
   gap: 10px;
@@ -193,4 +197,11 @@ body {
 
 .actions > div:active {
   background-color: #258;
+}
+
+.actions > div.disabled,
+.actions > div.disabled:hover,
+.actions > div.disabled:active {
+  background-color: #ccc;
+  border-color: #bbb;
 }

@@ -15,85 +15,55 @@
         <h1>Schrodinger's Mastermind</h1>
       </div>
       <div class="container">
-        <div class="history-row">
+        <div class="history-row initial">
           <div class="sequence">
-            <div class="a"></div>
-            <div class="b"></div>
-            <div class="c"></div>
-            <div class="d"></div>
+            <div class="g"></div>
+            <div class="g"></div>
+            <div class="g"></div>
+            <div class="g"></div>
           </div>
-          <div class="pegs">
-            <div class="red"></div>
-            <div class="white"></div>
-            <div class="white"></div>
-            <div class="white"></div>
-          </div>
-        </div>
-        <div class="history-row">
-          <div class="sequence">
-            <div class="e"></div>
-            <div class="f"></div>
-            <div class="b"></div>
-            <div class="a"></div>
-          </div>
-          <div class="pegs">
-            <div class="white"></div>
-            <div class="white"></div>
-            <div class="white"></div>
-          </div>
-        </div>
-        <div class="history-row">
-          <div class="sequence">
-            <div class="c"></div>
-            <div class="d"></div>
-            <div class="f"></div>
-            <div class="e"></div>
-          </div>
-          <div class="pegs">
-            <div class="red"></div>
-            <div class="red"></div>
-          </div>
+          <div class="pegs"></div>
         </div>
         <div class="divider"></div>
-        <div class="thinking hidden"><div>Thinking...</div></div>
+        <div id="thinking" class="thinking hidden"><div>Thinking...</div></div>
         <div class="guess-row">
           <div class="controls">
             <div class="column">
-              <div class="a"></div>
+              <div class="a selected"></div>
               <div class="b"></div>
               <div class="c"></div>
               <div class="d"></div>
-              <div class="e selected"></div>
+              <div class="e"></div>
               <div class="f"></div>
             </div>
             <div class="column">
-              <div class="a"></div>
+              <div class="a selected"></div>
               <div class="b"></div>
               <div class="c"></div>
               <div class="d"></div>
               <div class="e"></div>
-              <div class="f selected"></div>
+              <div class="f"></div>
             </div>
             <div class="column">
-              <div class="a"></div>
+              <div class="a selected"></div>
               <div class="b"></div>
               <div class="c"></div>
               <div class="d"></div>
               <div class="e"></div>
-              <div class="f selected"></div>
+              <div class="f"></div>
             </div>
             <div class="column">
-              <div class="a"></div>
+              <div class="a selected"></div>
               <div class="b"></div>
               <div class="c"></div>
               <div class="d"></div>
-              <div class="e selected"></div>
+              <div class="e"></div>
               <div class="f"></div>
             </div>
           </div>
           <div class="actions">
-            <div id="btn-next" class="disabled">Submit</div>
-            <div id="btn-undo">Undo</div>
+            <div id="btn-submit">Submit</div>
+            <div id="btn-undo" class="disabled">Undo</div>
           </div>
         </div>
       </div>
