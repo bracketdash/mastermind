@@ -1,115 +1,8 @@
-const chars = "abcdef";
-
-const allPegCombos = [
-  [0, 0],
-  [0, 1],
-  [0, 2],
-  [0, 3],
-  [0, 4],
-  [1, 0],
-  [1, 1],
-  [1, 2],
-  [1, 3],
-  [2, 0],
-  [2, 1],
-  [2, 2],
-  [3, 0],
-  [3, 1],
-  [4, 0],
-];
-
 const historyPlaceholder = document.getElementById("history-placeholder");
 const historyBox = document.getElementById("history");
 const controls = document.querySelectorAll(".controls > .column > div");
 const btnSubmit = document.getElementById("btn-submit");
 const btnUndo = document.getElementById("btn-undo");
-
-function fitsClues(history, combo) {
-  const comboChars = new Set(combo);
-  for (let i = 0; i < history.length; i++) {
-    const [prevCombo, reds, whites] = history[i];
-    if (combo === prevCombo) {
-      return false;
-    }
-    if (reds === 0) {
-      for (let j = 0; j < prevCombo.length; j++) {
-        if (prevCombo[j] === combo[j]) {
-          return false;
-        }
-      }
-    }
-    const totalPegs = reds + whites;
-    if (totalPegs === 0) {
-      for (let j = 0; j < prevCombo.length; j++) {
-        if (comboChars.has(prevCombo[j])) {
-          return false;
-        }
-      }
-    } else {
-      let exactMatches = 0;
-      for (let j = 0; j < prevCombo.length; j++) {
-        if (prevCombo[j] === combo[j]) {
-          exactMatches++;
-        }
-      }
-      const prevFreq = {};
-      const comboFreq = {};
-      for (let j = 0; j < prevCombo.length; j++) {
-        prevFreq[prevCombo[j]] = (prevFreq[prevCombo[j]] || 0) + 1;
-        comboFreq[combo[j]] = (comboFreq[combo[j]] || 0) + 1;
-      }
-      let overlapCount = 0;
-      for (const char in prevFreq) {
-        overlapCount += Math.min(prevFreq[char] || 0, comboFreq[char] || 0);
-      }
-      if (exactMatches !== reds || overlapCount < totalPegs) {
-        return false;
-      }
-    }
-  }
-  return true;
-}
-
-function getPossibleSecretCodes(history) {
-  let possibleSecretCodes = 0;
-  for (let i = 0; i < 6; i++) {
-    for (let j = 0; j < 6; j++) {
-      for (let k = 0; k < 6; k++) {
-        for (let l = 0; l < 6; l++) {
-          const current = chars[i] + chars[j] + chars[k] + chars[l];
-          if (fitsClues(history, current)) {
-            possibleSecretCodes++;
-          }
-        }
-      }
-    }
-  }
-  return possibleSecretCodes;
-}
-
-function getFeedback(history, guess) {
-  const possibleResults = [];
-  allPegCombos.forEach(([red, white]) => {
-    const possibleSecretCodes = getPossibleSecretCodes([
-      ...history,
-      [guess, red, white],
-    ]);
-    if (possibleSecretCodes) {
-      possibleResults.push([red, white, possibleSecretCodes]);
-    }
-  });
-  if (!possibleResults.length) {
-    return {
-      red: 4,
-      white: 0,
-    };
-  }
-  possibleResults.sort((a, b) => b[2] - a[2]);
-  return {
-    red: possibleResults[0][0],
-    white: possibleResults[0][1],
-  };
-}
 
 function handleClickControl() {
   this.parentElement.querySelector(".selected").classList.remove("selected");
@@ -171,5 +64,6 @@ function handleClickUndo() {
 controls.forEach((control) => {
   control.addEventListener("click", handleClickControl);
 });
+
 btnSubmit.addEventListener("click", handleClickSubmit);
 btnUndo.addEventListener("click", handleClickUndo);

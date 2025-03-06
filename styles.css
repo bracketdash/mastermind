@@ -14,6 +14,8 @@ body {
 .header {
   background-color: #369;
   padding: 10px 0;
+  position: fixed;
+  width: 100%;
 }
 
 .header > h1 {
@@ -26,7 +28,7 @@ body {
 
 .container {
   margin: 0 auto;
-  padding-top: 16px;
+  padding-top: 64px;
   width: 360px;
 }
 
@@ -51,6 +53,7 @@ body {
 
 .guess-row {
   display: flex;
+  padding-bottom: 64px;
 }
 
 .sequence {
