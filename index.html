@@ -15,7 +15,7 @@
         <h1>Schrodinger's Mastermind</h1>
       </div>
       <div class="container">
-        <div class="history-row initial">
+        <div id="history-placeholder" class="history-row">
           <div class="sequence">
             <div class="g"></div>
             <div class="g"></div>
@@ -24,8 +24,8 @@
           </div>
           <div class="pegs"></div>
         </div>
-        <div id="divider" class="divider"></div>
-        <div id="thinking" class="thinking hidden"><div>Thinking...</div></div>
+        <div id="history"></div>
+        <div class="divider"></div>
         <div class="guess-row">
           <div class="controls">
             <div class="column">
@@ -68,7 +68,6 @@
         </div>
       </div>
     </div>
-    <script src="game.js"></script>
     <script src="app.js"></script>
   </body>
 </html>
