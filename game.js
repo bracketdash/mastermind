@@ -87,7 +87,7 @@ function getFeedback(history, guess) {
     setTimeout(() => {
       const combos = mapCombos(history);
       const numCombos = combos.length;
-      const codes = combos.map((code) => {
+      const codes = combos.map((code, index) => {
         let total = 0;
         combos.forEach((combo) => {
           const numCombosAfter = mapCombos([
@@ -96,6 +96,12 @@ function getFeedback(history, guess) {
           ]).length;
           total += numCombos - numCombosAfter;
         });
+
+        // DEBUGGING - it keeps crashing at about 9%...
+        console.log(
+          `Calculating feedback... ${((index * 100) / numCombos).toFixed(2)}%`
+        );
+        
         return {
           slice: getHistorySlice(code, guess),
           avg: total / numCombos,
