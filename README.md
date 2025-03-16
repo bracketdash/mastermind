@@ -1,4 +1,4 @@
-# Schrodinger's Mastermind
+# Mastermind+
 
 This is a version of the classic Mastermind game but the secret code adapts to the player's guesses so that they can only win once the history of guesses logically narrows it down to one possibility, without the player being able to prove that the computer had been cheating.
 
